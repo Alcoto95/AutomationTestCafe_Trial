@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testcafe:chrome": "testcafe chrome ./test -e"
+    "testcafe:chrome": "testcafe chrome ./test -e",
+    "api:tests": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/Alcoto95/AutomationTestCafe_Trial#readme",
   "devDependencies": {
+    "newman": "^4.5.1",
     "testcafe": "^1.3.2"
   }
 }

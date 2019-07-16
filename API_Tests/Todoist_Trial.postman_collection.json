@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "fb16e618-32e7-45dd-96b9-acc00ec2decc",
+		"name": "Todoist_Trial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Project Tests",
+			"item": [
+				{
+					"name": "GetAllProjects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c51af3d-0ec8-426b-adb8-acb966c567f8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "873e4313-28ba-4d17-ad74-eb88fbfa5524",
+								"exec": [
+									"statusCode = 200;",
+									"",
+									"// pm.test('Validate expected Status Code: ', () => {",
+									"//     pm.response.to.have.status(pm.environment.get('expectedStatusCode'));",
+									"// });",
+									"",
+									"// pm.test('Response Time below 500 ms', () => {",
+									"//     pm.expect(pm.response.responseTime).to.be.below(500);",
+									"// });",
+									"",
+									"// const jsonBody = pm.response.json();",
+									"// const textBody = pm.response.text();",
+									"",
+									"// pm.test(\"Body matches string\", () => {",
+									"//     pm.expect(textBody).to.include(\"id\");",
+									"    ",
+									"//     jsonBody.forEach((obj) => {",
+									"//         pm.expect(obj).to.have.property('id');",
+									"//     });",
+									"// });",
+									"",
+									"// pm.test('Response Body to be JSON', () => {",
+									"//     pm.response.to.have.header('content-type', 'application/json');",
+									"// });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api-key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "81834e3a-1eaa-4109-a71c-e34780e1a24e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7a4d4569-a964-41b2-9da5-9d79972493c1",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test('Validate expected Status Code: ', () => {",
+					"    pm.response.to.have.status(statusCode);",
+					"});",
+					"",
+					"pm.test('Response Time below 700 ms', () => {",
+					"    pm.expect(pm.response.responseTime).to.be.below(700);",
+					"});"
+				]
+			}
+		}
+	]
+}

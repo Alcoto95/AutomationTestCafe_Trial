@@ -10,7 +10,7 @@ taskName
 fixture`Create Task Test Suite`
   .page(baseUrl)
 
-test.only('Create New Task - Valid Name', async t => {
+test('Create New Task - Valid Name', async t => {
   await loginPage.loginFlow(email, password)
   await homePage.createNewTask(taskName)
 
