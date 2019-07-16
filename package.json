@@ -1,0 +1,23 @@
+{
+  "name": "AutomationTestCafe_Trial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "testcafe:chrome": "testcafe chrome ./test -e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alcoto95/AutomationTestCafe_Trial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alcoto95/AutomationTestCafe_Trial/issues"
+  },
+  "homepage": "https://github.com/Alcoto95/AutomationTestCafe_Trial#readme",
+  "devDependencies": {
+    "testcafe": "^1.3.2"
+  }
+}
