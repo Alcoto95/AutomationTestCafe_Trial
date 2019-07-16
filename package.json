@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "testcafe:chrome": "testcafe chrome ./test -e",
-    "api:tests": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json -r html --reporter-html-export ./API_Tests/newman_reporter"
+    "api:tests": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json",
+    "api:tests:html:report": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json -r html --reporter-html-export ./API_Tests/newman_reporter"
   },
   "repository": {
     "type": "git",
