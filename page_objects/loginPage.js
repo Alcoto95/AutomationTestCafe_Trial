@@ -12,22 +12,21 @@ class LoginPage {
     this.loginErrorMsg = Selector('div.error_msg > span')
   }
 
-  loginFlow = async (user, pass) => {
+  loginFlow = async (user = null, pass = null) => {
     await t
       .click(this.loginBtn)
       .switchToIframe(this.loginIframe1)
       .switchToIframe(this.loginIframe2)
-      .typeText(this.emailInput, user)
-      .typeText(this.passwordInput, pass)
-      .click(this.submitLoginBtn)
-      .switchToMainWindow()
-  }
-  
-  loginFlowEmptyValues = async () => {
+
+    if(user != null){
+      await t.typeText(this.emailInput, user, { paste : true })
+    }
+
+    if(pass != null){
+      await t.typeText(this.passwordInput, pass, { paste : true })
+    }
+
     await t
-      .click(this.loginBtn)
-      .switchToIframe(this.loginIframe1)
-      .switchToIframe(this.loginIframe2)
       .click(this.submitLoginBtn)
   }
 
