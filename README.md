@@ -44,14 +44,16 @@ You will see the postman/newman execution in the console showing a result of the
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+TestCafe is a Seleniumless or Non-Selenium tool to automate E2E web testing.
+It has the integration with browserstack (https://github.com/DevExpress/testcafe-browser-provider-browserstack). Allowing you to perform your tests in different Browsers, OS and their different versions, as well as use different devices for web tests.
 
-```
-Give an example
-```
+Postman and Newman are for performing API Testing by doing direct calls to the server using endpoints, getting a response and different parameters that will define if the call was successful or not, providing different information to you in order to test.
+
+Tests inside Postman uses JavaScript for scripting and chai for assertions.
 
 ## Built With
 
 * [TestCafe](https://devexpress.github.io/testcafe/) - The Functional Automation used for Web/FE
 * [Postman](https://www.getpostman.com/) - API Testing Tool
+* [PostmanBDD](https://www.npmjs.com/package/postman-bdd) - Assertions for Postman
 * [Newman](https://www.npmjs.com/package/newman) - Postman CLI for Automation Testing
