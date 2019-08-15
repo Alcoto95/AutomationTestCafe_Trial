@@ -1,0 +1,62 @@
+{
+  "uid" : "508e273b89e412fd",
+  "name" : "Create New Task - Validation by Name",
+  "fullName" : "Create Task Test Suite.Create New Task - Validation by Name",
+  "historyId" : "362af574b21ff343f3bf4fc25926a9f0",
+  "time" : {
+    "start" : 1565888760778,
+    "stop" : 1565888764018,
+    "duration" : 3240
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusMessage" : "This test has been passed.",
+  "statusTrace" : "no error",
+  "flaky" : true,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "undefined"
+  }, {
+    "name" : "suite",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "testClass",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "testMethod",
+    "value" : "Create New Task - Validation by Name"
+  }, {
+    "name" : "package",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "User Agent",
+    "value" : "Chrome 76.0.3809 / Mac OS X 10.14.4"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "1d9a3bee4a4edd29",
+      "status" : "failed",
+      "statusDetails" : "This test has been broken",
+      "time" : {
+        "start" : 1565888060775,
+        "stop" : 1565888074014,
+        "duration" : 13239
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "508e273b89e412fd.json",
+  "parameterValues" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+}

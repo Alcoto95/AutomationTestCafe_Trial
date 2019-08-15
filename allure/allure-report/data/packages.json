@@ -1,0 +1,85 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "Login Test Suite",
+    "children" : [ {
+      "name" : "Login Test - Happy Path",
+      "uid" : "4a171a2a36578708",
+      "parentUid" : "64f8536e85111009154cdf72ac2afc42",
+      "status" : "passed",
+      "time" : {
+        "start" : 1565888740668,
+        "stop" : 1565888748569,
+        "duration" : 7901
+      },
+      "flaky" : false,
+      "parameters" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+    }, {
+      "name" : "Login Test - Empty Values",
+      "uid" : "3b572e948d8aecb1",
+      "parentUid" : "64f8536e85111009154cdf72ac2afc42",
+      "status" : "passed",
+      "time" : {
+        "start" : 1565888743416,
+        "stop" : 1565888746153,
+        "duration" : 2737
+      },
+      "flaky" : false,
+      "parameters" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+    }, {
+      "name" : "Login Test - Empty Email",
+      "uid" : "3c2721a92a62b24",
+      "parentUid" : "64f8536e85111009154cdf72ac2afc42",
+      "status" : "passed",
+      "time" : {
+        "start" : 1565888747532,
+        "stop" : 1565888751639,
+        "duration" : 4107
+      },
+      "flaky" : false,
+      "parameters" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+    }, {
+      "name" : "Login Test - Empty Password",
+      "uid" : "c769a1743b46b3a1",
+      "parentUid" : "64f8536e85111009154cdf72ac2afc42",
+      "status" : "passed",
+      "time" : {
+        "start" : 1565888751020,
+        "stop" : 1565888754500,
+        "duration" : 3480
+      },
+      "flaky" : false,
+      "parameters" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+    } ],
+    "uid" : "64f8536e85111009154cdf72ac2afc42"
+  }, {
+    "name" : "Create Task Test Suite",
+    "children" : [ {
+      "name" : "Create New Task - Valid Name",
+      "uid" : "68de5d9d608aa67b",
+      "parentUid" : "b6ae17915c16385cf963f7fe1c3ed8de",
+      "status" : "passed",
+      "time" : {
+        "start" : 1565888757531,
+        "stop" : 1565888764034,
+        "duration" : 6503
+      },
+      "flaky" : true,
+      "parameters" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+    }, {
+      "name" : "Create New Task - Validation by Name",
+      "uid" : "508e273b89e412fd",
+      "parentUid" : "b6ae17915c16385cf963f7fe1c3ed8de",
+      "status" : "passed",
+      "time" : {
+        "start" : 1565888760778,
+        "stop" : 1565888764018,
+        "duration" : 3240
+      },
+      "flaky" : true,
+      "parameters" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+    } ],
+    "uid" : "b6ae17915c16385cf963f7fe1c3ed8de"
+  } ]
+}
