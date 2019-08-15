@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Project Tests",
+			"name": "Projects",
 			"item": [
 				{
 					"name": "GetAllProjects",
@@ -14,9 +14,30 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5c51af3d-0ec8-426b-adb8-acb966c567f8",
+								"id": "80104319-4896-4663-8818-ea2bcde6162e",
 								"exec": [
-									""
+									"const jsonBody = pm.response.json();",
+									"const textBody = pm.response.text();",
+									"",
+									"pm.test(\"Id is present in the response\", () => {",
+									"    pm.expect(textBody).to.include(\"id\");",
+									"    ",
+									"    jsonBody.forEach((obj) => {",
+									"        pm.expect(obj).to.have.property('id');",
+									"    });",
+									"});",
+									"",
+									"pm.test('Response Body to be JSON', () => {",
+									"    pm.response.to.have.header('content-type', 'application/json');",
+									"});",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(jsonBody, schema)).to.be.true;",
+									"});",
+									"if(tv4.error){ ",
+									"    tv4.error.message;",
+									"    pm.test(tv4.error.message);",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -24,32 +45,41 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "873e4313-28ba-4d17-ad74-eb88fbfa5524",
+								"id": "11ae52ec-c4f7-4247-84e4-d4b292e1a442",
 								"exec": [
 									"statusCode = 200;",
 									"",
-									"// pm.test('Validate expected Status Code: ', () => {",
-									"//     pm.response.to.have.status(pm.environment.get('expectedStatusCode'));",
-									"// });",
-									"",
-									"// pm.test('Response Time below 500 ms', () => {",
-									"//     pm.expect(pm.response.responseTime).to.be.below(500);",
-									"// });",
-									"",
-									"// const jsonBody = pm.response.json();",
-									"// const textBody = pm.response.text();",
-									"",
-									"// pm.test(\"Body matches string\", () => {",
-									"//     pm.expect(textBody).to.include(\"id\");",
-									"    ",
-									"//     jsonBody.forEach((obj) => {",
-									"//         pm.expect(obj).to.have.property('id');",
-									"//     });",
-									"// });",
-									"",
-									"// pm.test('Response Body to be JSON', () => {",
-									"//     pm.response.to.have.header('content-type', 'application/json');",
-									"// });"
+									"schema = {",
+									"  \"type\": \"array\",",
+									"  \"items\": {",
+									"    \"type\": \"object\",",
+									"    \"required\": [",
+									"      \"id\",",
+									"      \"name\",",
+									"      \"order\",",
+									"      \"indent\",",
+									"      \"comment_count\"",
+									"    ],",
+									"    \"properties\": {",
+									"      \"id\": {",
+									"        \"type\": \"integer\"",
+									"      },",
+									"      \"name\": {",
+									"        \"type\": \"string\"",
+									"      },",
+									"      \"order\": {",
+									"        \"type\": \"integer\"",
+									"      },",
+									"      \"indent\": {",
+									"        \"type\": \"integer\"",
+									"      },",
+									"      \"comment_count\": {",
+									"        \"type\": \"integer\"",
+									"      }",
+									"    },",
+									"    \"additionalProperties\": false",
+									"  }",
+									"};"
 								],
 								"type": "text/javascript"
 							}
@@ -64,14 +94,628 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/projects",
+							"raw": "{{todoist_baseUrl}}/projects",
 							"host": [
-								"{{baseUrl}}"
+								"{{todoist_baseUrl}}"
 							],
 							"path": [
 								"projects"
 							]
+						},
+						"description": "This uses the new version of Postman BDD"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewProject",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "666cc689-4fb8-4657-bea8-3897226f080c",
+								"exec": [
+									"statusCode = 200;",
+									"",
+									"newProjectName = 'This is a new Project ' + parseInt(Math.random() * 10000);",
+									"",
+									"pm.environment.set('newProjectName', newProjectName);",
+									"",
+									"schema = {",
+									"  \"type\": \"object\",",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"order\",",
+									"    \"indent\",",
+									"    \"comment_count\"",
+									"  ],",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"name\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"order\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"indent\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"comment_count\": {",
+									"      \"type\": \"integer\"",
+									"    }",
+									"  },",
+									"  \"additionalProperties\": false",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a5b0c3f-6467-40e9-9b25-2a4a2c4246ad",
+								"exec": [
+									"const jsonBody = pm.response.json();",
+									"const projectName = pm.environment.get('newProjectName');",
+									"",
+									"pm.test('Validate Name', () => {",
+									"    pm.expect(jsonBody.name).to.eql(projectName);",
+									"});",
+									"",
+									"pm.test('Response Body to be JSON', () => {",
+									"    pm.response.to.have.header('content-type', 'application/json');",
+									"});",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(jsonBody, schema)).to.be.true;",
+									"});",
+									"if(tv4.error){ ",
+									"    tv4.error.message;",
+									"    pm.test(tv4.error.message);",
+									"}",
+									"",
+									"// Store Response Body id to use it later",
+									"const projectId = jsonBody.id;",
+									"pm.environment.set('projectId', projectId);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "$(uuidgen)",
+								"disabled": true
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"{{newProjectName}}\"\n}"
+						},
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects"
+							]
+						},
+						"description": "This uses the new version of Postman BDD"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneProject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80104319-4896-4663-8818-ea2bcde6162e",
+								"exec": [
+									"const jsonBody = pm.response.json();",
+									"const textBody = pm.response.text();",
+									"const projectName = pm.environment.get('newProjectName');",
+									"",
+									"pm.test('Validate Name', () => {",
+									"    pm.expect(jsonBody.name).to.eql(projectName);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", () => {",
+									"    pm.expect(textBody).to.include(\"id\");",
+									"    pm.expect(jsonBody).to.have.property('id');",
+									"});",
+									"",
+									"pm.test('Response Body to be JSON', () => {",
+									"    pm.response.to.have.header('content-type', 'application/json');",
+									"});",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(jsonBody, schema)).to.be.true;",
+									"});",
+									"if(tv4.error){ ",
+									"    tv4.error.message;",
+									"    pm.test(tv4.error.message);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11ae52ec-c4f7-4247-84e4-d4b292e1a442",
+								"exec": [
+									"statusCode = 200;",
+									"",
+									"schema = {",
+									"  \"type\": \"object\",",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"order\",",
+									"    \"indent\",",
+									"    \"comment_count\"",
+									"  ],",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"name\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"order\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"indent\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"comment_count\": {",
+									"      \"type\": \"integer\"",
+									"    }",
+									"  },",
+									"  \"additionalProperties\": false",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects/{{projectId}}",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"{{projectId}}"
+							]
+						},
+						"description": "This uses the new version of Postman BDD"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProject",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "666cc689-4fb8-4657-bea8-3897226f080c",
+								"exec": [
+									"statusCode = 204;",
+									"",
+									"newProjectName = 'Updated Project ' + parseInt(Math.random() * 10000);",
+									"",
+									"pm.environment.set('newProjectName', newProjectName);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a5b0c3f-6467-40e9-9b25-2a4a2c4246ad",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "$(uuidgen)",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer $token",
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"{{newProjectName}}\"\n}"
+						},
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects/{{projectId}}",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"{{projectId}}"
+							]
+						},
+						"description": "This uses the new version of Postman BDD"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUpdatedProject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80104319-4896-4663-8818-ea2bcde6162e",
+								"exec": [
+									"const jsonBody = pm.response.json();",
+									"const textBody = pm.response.text();",
+									"const projectName = pm.environment.get('newProjectName');",
+									"const projectId = pm.environment.get('projectId');",
+									"",
+									"pm.test('Validate Name', () => {",
+									"    pm.expect(jsonBody.name).to.eql(projectName);",
+									"});",
+									"",
+									"pm.test('Validate Id', () => {",
+									"    pm.expect(jsonBody.id).to.eql(projectId);",
+									"});",
+									"",
+									"pm.test('Response Body to be JSON', () => {",
+									"    pm.response.to.have.header('content-type', 'application/json');",
+									"});",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(jsonBody, schema)).to.be.true;",
+									"});",
+									"if(tv4.error){ ",
+									"    tv4.error.message;",
+									"    pm.test(tv4.error.message);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11ae52ec-c4f7-4247-84e4-d4b292e1a442",
+								"exec": [
+									"statusCode = 200;",
+									"",
+									"schema = {",
+									"  \"type\": \"object\",",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"order\",",
+									"    \"indent\",",
+									"    \"comment_count\"",
+									"  ],",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"name\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"order\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"indent\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"comment_count\": {",
+									"      \"type\": \"integer\"",
+									"    }",
+									"  },",
+									"  \"additionalProperties\": false",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects/{{projectId}}",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"{{projectId}}"
+							]
+						},
+						"description": "This uses the new version of Postman BDD"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUpdatedProject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80104319-4896-4663-8818-ea2bcde6162e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11ae52ec-c4f7-4247-84e4-d4b292e1a442",
+								"exec": [
+									"statusCode = 204;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects/{{projectId}}",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"{{projectId}}"
+							]
+						},
+						"description": "This uses the new version of Postman BDD"
+					},
+					"response": []
+				}
+			],
+			"description": "All positive scenarios for the Project Requests including:\n\n- Get All Projects\n- Create a New Project\n- Get a single Project\n- Update a Project\n- Delete a Project",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "59989e47-0f91-48b4-9c63-79c5d2840c27",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b1ff6100-7683-4c70-adff-30a3eed27b9b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Projects - Negative Scenarios",
+			"item": [
+				{
+					"name": "GetAllProjectsWrongEndPoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80104319-4896-4663-8818-ea2bcde6162e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11ae52ec-c4f7-4247-84e4-d4b292e1a442",
+								"exec": [
+									"statusCode = 404;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"url": {
+							"raw": "https://beta.todoist.com/API/v8/someprojects",
+							"protocol": "https",
+							"host": [
+								"beta",
+								"todoist",
+								"com"
+							],
+							"path": [
+								"API",
+								"v8",
+								"someprojects"
+							]
+						},
+						"description": "Uses an invalid URL\n\nExpected result: 404 not found"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllProjectsWrongAPIKey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80104319-4896-4663-8818-ea2bcde6162e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11ae52ec-c4f7-4247-84e4-d4b292e1a442",
+								"exec": [
+									"statusCode = 403;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ksdjhasjgdysg8921767812",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer $token"
+							}
+						],
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects"
+							]
+						},
+						"description": "Uses an invalid API Key\n\nExpected result: 403 Forbidden"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewProjectEmptyBody",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "666cc689-4fb8-4657-bea8-3897226f080c",
+								"exec": [
+									"statusCode = 400;"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a5b0c3f-6467-40e9-9b25-2a4a2c4246ad",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "$(uuidgen)",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer $token",
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{todoist_baseUrl}}/projects",
+							"host": [
+								"{{todoist_baseUrl}}"
+							],
+							"path": [
+								"projects"
+							]
+						},
+						"description": "Negative Scenario:\n\n- Provide an empty body\n- Expected result: 400 bad request"
 					},
 					"response": []
 				}
@@ -83,7 +727,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "{{api-key}}",
+				"value": "{{todoist_API_Key}}",
 				"type": "string"
 			}
 		]
@@ -109,8 +753,8 @@
 					"    pm.response.to.have.status(statusCode);",
 					"});",
 					"",
-					"pm.test('Response Time below 700 ms', () => {",
-					"    pm.expect(pm.response.responseTime).to.be.below(700);",
+					"pm.test('Response Time below 5000 ms', () => {",
+					"    pm.expect(pm.response.responseTime).to.be.below(5000);",
 					"});"
 				]
 			}

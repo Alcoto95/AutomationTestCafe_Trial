@@ -1,0 +1,61 @@
+[ {
+  "uid" : "508e273b89e412fd",
+  "name" : "Create New Task - Validation by Name",
+  "time" : {
+    "start" : 1565888760778,
+    "stop" : 1565888764018,
+    "duration" : 3240
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c769a1743b46b3a1",
+  "name" : "Login Test - Empty Password",
+  "time" : {
+    "start" : 1565888751020,
+    "stop" : 1565888754500,
+    "duration" : 3480
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3c2721a92a62b24",
+  "name" : "Login Test - Empty Email",
+  "time" : {
+    "start" : 1565888747532,
+    "stop" : 1565888751639,
+    "duration" : 4107
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4a171a2a36578708",
+  "name" : "Login Test - Happy Path",
+  "time" : {
+    "start" : 1565888740668,
+    "stop" : 1565888748569,
+    "duration" : 7901
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3b572e948d8aecb1",
+  "name" : "Login Test - Empty Values",
+  "time" : {
+    "start" : 1565888743416,
+    "stop" : 1565888746153,
+    "duration" : 2737
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "68de5d9d608aa67b",
+  "name" : "Create New Task - Valid Name",
+  "time" : {
+    "start" : 1565888757531,
+    "stop" : 1565888764034,
+    "duration" : 6503
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

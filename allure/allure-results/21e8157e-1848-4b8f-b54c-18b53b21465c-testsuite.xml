@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1565888060775' stop='1565888060785'>
+    <name>Create Task Test Suite</name>
+    <title>Create Task Test Suite</title>
+    <test-cases>
+        <test-case start='1565888060775' status='failed' stop='1565888074014'>
+            <name>Create New Task - Validation by Name</name>
+            <title>Create New Task - Validation by Name</title>
+            <labels>
+                <label name='severity' value='undefined'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='User Agent' value='Chrome 76.0.3809 / Mac OS X 10.14.4'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>This test has been broken</message>
+                <stack-trace>The specified selector does not match any element in the DOM tree.
+                
+                 > | Selector('div.richtext_editor')
+                
+                Browser: Chrome 76.0.3809 / Mac OS X 10.14.4
+                
+                   11 |  }
+                   12 |
+                   13 |  createNewTask = async taskName => {
+                   14 |    await t
+                   15 |      .click(this.newTaskBtn)
+                 > 16 |      .typeText(this.newTaskText, taskName, { paste : true })
+                   17 |      .click(this.submitTask)
+                   18 |  }
+                   19 |
+                   20 |  getTasksCount = async () => {
+                   21 |    await t.hover(this.taskItem)
+                
+                   at HomePage.typeText [as null] (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/page_objects/homePage.js:16:8)
+                   at HomePage.createNewTask (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/page_objects/homePage.js:4:17)
+                   at createNewTask (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/test/taskTests.js:24:18)
+                   at test (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/test/taskTests.js:23:1)
+                   at &lt;anonymous> (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/node_modules/testcafe/src/api/wrap-test-function.js:17:28)
+                   at TestRun._executeTestFn (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/node_modules/testcafe/src/test-run/index.js:263:19)
+                   at TestRun.start (/Users/alberto.copado/Documents/Personal/AutomationPractices/AutomationTestCafe_Trial/node_modules/testcafe/src/test-run/index.js:312:24)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
