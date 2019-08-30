@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1565900917845' stop='1565900917845'>
+    <name>Login Test Suite</name>
+    <title>Login Test Suite</title>
+    <test-cases>
+        <test-case start='1565900917845' status='passed' stop='1565900921525'>
+            <name>Login Test - Empty Password</name>
+            <title>Login Test - Empty Password</title>
+            <labels>
+                <label name='severity' value='undefined'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='User Agent' value='Chrome 76.0.3809 / Mac OS X 10.14.4'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>This test has been passed.</message>
+                <stack-trace>no error</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

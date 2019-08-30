@@ -1,0 +1,71 @@
+{
+  "uid" : "f46add337b078b9d",
+  "name" : "Login Test - Happy Path",
+  "fullName" : "Login Test Suite.Login Test - Happy Path",
+  "historyId" : "e46b9c6489329ef3db43d162a50e09ff",
+  "time" : {
+    "start" : 1565900907428,
+    "stop" : 1565900915098,
+    "duration" : 7670
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusMessage" : "This test has been passed.",
+  "statusTrace" : "no error",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "undefined"
+  }, {
+    "name" : "suite",
+    "value" : "Login Test Suite"
+  }, {
+    "name" : "testClass",
+    "value" : "Login Test Suite"
+  }, {
+    "name" : "testMethod",
+    "value" : "Login Test - Happy Path"
+  }, {
+    "name" : "package",
+    "value" : "Login Test Suite"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "User Agent",
+    "value" : "Chrome 76.0.3809 / Mac OS X 10.14.4"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "bdd373ea97a68a20",
+      "status" : "passed",
+      "statusDetails" : "This test has been passed.",
+      "time" : {
+        "start" : 1565898236988,
+        "stop" : 1565898244027,
+        "duration" : 7039
+      }
+    }, {
+      "uid" : "188b28ff98ba13a3",
+      "status" : "passed",
+      "statusDetails" : "This test has been passed.",
+      "time" : {
+        "start" : 1565888740668,
+        "stop" : 1565888748569,
+        "duration" : 7901
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f46add337b078b9d.json",
+  "parameterValues" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+}

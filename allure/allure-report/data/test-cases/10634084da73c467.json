@@ -1,0 +1,51 @@
+{
+  "uid" : "10634084da73c467",
+  "name" : "Create New Task - Validation by Name",
+  "fullName" : "Create Task Test Suite.Create New Task - Validation by Name",
+  "historyId" : "362af574b21ff343f3bf4fc25926a9f0",
+  "time" : {
+    "start" : 1565898256476,
+    "stop" : 1565898259743,
+    "duration" : 3267
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusMessage" : "This test has been passed.",
+  "statusTrace" : "no error",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "undefined"
+  }, {
+    "name" : "suite",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "testClass",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "testMethod",
+    "value" : "Create New Task - Validation by Name"
+  }, {
+    "name" : "package",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "User Agent",
+    "value" : "Chrome 76.0.3809 / Mac OS X 10.14.4"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "10634084da73c467.json",
+  "parameterValues" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+}
