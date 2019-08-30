@@ -11,6 +11,7 @@
     "testcafe:firefox": "testcafe firefox ./test -e",
     "allure:reporter:testcafe": "allure generate allure/allure-results --clean -o allure/allure-report && allure open allure/allure-report",
     "api:tests": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json",
+    "api:tests:slack": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json -r cli,slack",
     "api:tests:html:report": "newman run ./API_Tests/Todoist_Trial.postman_collection.json -e ./API_Tests/todoistTrial.postman_environment.json -r html --reporter-html-export ./API_Tests/newman_reporter"
   },
   "repository": {
@@ -27,6 +28,7 @@
   "devDependencies": {
     "newman": "^4.5.1",
     "newman-reporter-html": "^1.0.3",
+    "newman-reporter-slack": "^1.1.0",
     "testcafe": "^1.3.2"
   },
   "dependencies": {

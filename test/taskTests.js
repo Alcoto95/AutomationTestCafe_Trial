@@ -17,7 +17,7 @@ fixture`Create Task Test Suite`
 
 test('Create New Task - Valid Name', async t => {
   await homePage.createNewTask(taskName)
-  await t.expect(await homePage.taskName.withText(taskName).exists).ok()
+  await t.expect(homePage.taskName.withText(taskName).exists).ok()
 })
 
 test('Create New Task - Validation by Name', async t => {

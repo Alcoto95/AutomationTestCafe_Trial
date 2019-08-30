@@ -1,0 +1,80 @@
+{
+  "uid" : "fb3530de4580d1a7",
+  "name" : "Create New Task - Valid Name",
+  "fullName" : "Create Task Test Suite.Create New Task - Valid Name",
+  "historyId" : "82695536e21005f2829c5eb0b7b2f31a",
+  "time" : {
+    "start" : 1565900925248,
+    "stop" : 1565900932644,
+    "duration" : 7396
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusMessage" : "This test has been passed.",
+  "statusTrace" : "no error",
+  "flaky" : true,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "undefined"
+  }, {
+    "name" : "suite",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "testClass",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "testMethod",
+    "value" : "Create New Task - Valid Name"
+  }, {
+    "name" : "package",
+    "value" : "Create Task Test Suite"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "User Agent",
+    "value" : "Chrome 76.0.3809 / Mac OS X 10.14.4"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "83d40a55fc9da6d6",
+      "status" : "passed",
+      "statusDetails" : "This test has been passed.",
+      "time" : {
+        "start" : 1565898253201,
+        "stop" : 1565898259460,
+        "duration" : 6259
+      }
+    }, {
+      "uid" : "4162bf8ac71b33f7",
+      "status" : "passed",
+      "statusDetails" : "This test has been passed.",
+      "time" : {
+        "start" : 1565888757531,
+        "stop" : 1565888764034,
+        "duration" : 6503
+      }
+    }, {
+      "uid" : "a28da03954a54634",
+      "status" : "failed",
+      "statusDetails" : "This test has been broken",
+      "time" : {
+        "start" : 1565888047512,
+        "stop" : 1565888067437,
+        "duration" : 19925
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fb3530de4580d1a7.json",
+  "parameterValues" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+}

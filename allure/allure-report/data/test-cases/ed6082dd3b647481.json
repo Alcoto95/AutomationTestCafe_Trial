@@ -1,0 +1,51 @@
+{
+  "uid" : "ed6082dd3b647481",
+  "name" : "Login Test - Empty Password",
+  "fullName" : "Login Test Suite.Login Test - Empty Password",
+  "historyId" : "7cafa91b3a4d4d57c65d1d09faf63c74",
+  "time" : {
+    "start" : 1565898246934,
+    "stop" : 1565898250103,
+    "duration" : 3169
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusMessage" : "This test has been passed.",
+  "statusTrace" : "no error",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "undefined"
+  }, {
+    "name" : "suite",
+    "value" : "Login Test Suite"
+  }, {
+    "name" : "testClass",
+    "value" : "Login Test Suite"
+  }, {
+    "name" : "testMethod",
+    "value" : "Login Test - Empty Password"
+  }, {
+    "name" : "package",
+    "value" : "Login Test Suite"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "User Agent",
+    "value" : "Chrome 76.0.3809 / Mac OS X 10.14.4"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ed6082dd3b647481.json",
+  "parameterValues" : [ "Chrome 76.0.3809 / Mac OS X 10.14.4" ]
+}
