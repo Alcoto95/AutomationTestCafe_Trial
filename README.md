@@ -37,6 +37,12 @@ TestCafe will be automatically executed using your local chrome version installe
 testcafe chrome:headless ./tests -e
 ```
 
+Inside package.json find the script:
+
+```
+npm run testcafe:chrome:headless
+```
+
 Note: If no specific tests are specified, it will run all the tests inside the folder selected in the script.
 
 ### For API Test:
