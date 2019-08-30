@@ -31,6 +31,12 @@ npm run testcafe:chrome
 
 TestCafe will be automatically executed using your local chrome version installed in your machine and will perform all the tests specified in the command.
 
+### Running Headless mode:
+
+```
+testcafe chrome:headless ./tests -e
+```
+
 Note: If no specific tests are specified, it will run all the tests inside the folder selected in the script.
 
 ### For API Test:
