@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "testcafe:chrome": "testcafe chrome ./test -e",
+    "testcafe:chrome:cli": "testcafe \"path:/Applications/Google Chrome.app\" ./test -e",
     "testcafe:slack": "testcafe chrome ./test -e --reporter slack",
     "testcafe:slack:errors": "testcafe chrome ./test -e --reporter slack-errors-only",
     "testcafe:chrome:allure": "testcafe chrome ./test -e --reporter allure",
