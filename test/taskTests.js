@@ -2,15 +2,10 @@ import loginPage from '../page_objects/loginPage'
 import homePage from '../page_objects/homePage'
 import { validUser } from '../utils/roles'
 import { t } from 'testcafe'
-import { 
-baseUrl,
-email,
-password,
-taskName
-} from '../utils/constants'
+import { todoistBaseUrl, taskName } from '../utils/constants'
 
 fixture`Create Task Test Suite`
-  .page(baseUrl)
+  .page(todoistBaseUrl)
   .beforeEach(async () => {
     await t.useRole(validUser)
   })

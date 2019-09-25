@@ -1,12 +1,12 @@
 import { t, Role } from 'testcafe'
 import loginPage from '../page_objects/loginPage'
 import {
-  baseUrl,
-  email,
-  password
+  todoistBaseUrl,
+  validEmail,
+  validPassword
 } from './constants'
 
-export const validUser = Role(baseUrl, async t => {
-  await loginPage.loginFlow(email, password)
+export const validUser = Role(todoistBaseUrl, async t => {
+  await loginPage.loginFlow(validEmail, validPassword)
   await t.switchToMainWindow()
 }, { preserveUrl: true })
