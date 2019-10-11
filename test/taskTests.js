@@ -13,10 +13,14 @@ fixture`Create Task Test Suite`
 test('Create New Task - Valid Name', async t => {
   await homePage.createNewTask(taskName)
   await t.expect(homePage.taskName.withText(taskName).exists).ok()
+}).meta({
+  SEVERITY: 'critical'
 })
 
 test('Create New Task - Validation by Name', async t => {
   await homePage.createNewTask(taskName)
   const newTaskName = await homePage.getLastTaskName()
   await t.expect(newTaskName).eql(taskName)
+}).meta({
+  SEVERITY: 'critical'
 })

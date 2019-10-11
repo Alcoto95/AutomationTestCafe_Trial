@@ -1,0 +1,18 @@
+<environment>
+    <parameter>
+        <key>Browser</key>
+        <value>Chrome</value>
+    </parameter>
+    <parameter>
+        <key>OS</key>
+        <value>MAC</value>
+    </parameter>
+    <parameter>
+        <key>Browser.Version</key>
+        <value>77.0</value>
+    </parameter>
+    <parameter>
+        <key>Stand</key>
+        <value>QA</value>
+    </parameter>
+</environment>
